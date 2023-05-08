@@ -14,6 +14,12 @@ class ListFragment : BaseFragment<FragmentListBinding>(FragmentListBinding::infl
     private val listViewModel by viewModel<ListViewModel>()
     private val wakeUpViewModel by viewModel<WakeUpViewModel>()
     private val clientsAdapter = ClientsAdapter()
+    private var toast: Toast? = null
+
+    override fun onPause() {
+        super.onPause()
+        toast?.cancel()
+    }
 
     override fun setup() {
         listViewModel.clients
@@ -22,7 +28,9 @@ class ListFragment : BaseFragment<FragmentListBinding>(FragmentListBinding::infl
         binding.clients.adapter = clientsAdapter
         clientsAdapter.setOnWakeUpClickListener {
             wakeUpViewModel.wakeUp(it)
-            Toast.makeText(context, "WoL packet sent", Toast.LENGTH_SHORT).show()
+            toast?.cancel()
+            toast = Toast.makeText(context, "WoL packet sent to ${it.name}", Toast.LENGTH_SHORT)
+            toast?.show()
         }
         clientsAdapter.setOnLongClickListener {
             val editFragment = ListFragmentDirections.actionListFragmentToEditFragment()

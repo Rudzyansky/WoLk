@@ -51,7 +51,7 @@ class ClientsAdapter : ListAdapter<Client, ClientViewHolder>(ClientDiffCallback(
                     .scaleY(0f)
                     .scaleX(1.005f)
                     .translationZ(5f)
-                    .setDuration(200)
+                    .setDuration(100)
                     .withEndAction {
                         if (name.visibility == View.VISIBLE) {
                             name.visibility = View.INVISIBLE
@@ -66,7 +66,7 @@ class ClientsAdapter : ListAdapter<Client, ClientViewHolder>(ClientDiffCallback(
                             .scaleY(1f)
                             .scaleX(1f)
                             .translationZ(0f)
-                            .setDuration(200)
+                            .setDuration(100)
                         animation?.start()
                     }
                 animation?.start()
