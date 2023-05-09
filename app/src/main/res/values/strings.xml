@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WoLk</string>
+    <string name="list_fragment_label">Client List</string>
+    <string name="edit_fragment_label">Edit Client</string>
+    <string name="action_add">Add</string>
+    <string name="name_hint">Node</string>
+    <string name="address_hint">192.168.0.100:9</string>
+    <string name="mac_address_hint">00:11:22:33:44:55</string>
+    <string name="save">Save</string>
+    <string name="wake_up">Wake Up</string>
+</resources>
